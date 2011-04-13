@@ -9,4 +9,11 @@ This is the home of Project Neuro.
 =======================
 = ABOUT PROJECT NEURO =
 =======================
-Project Neuro is a web-based application, built on the LAMP stack, that will allow users to use a simple file-sharing tool with the ability to add extensions, modules and skins. The name was inspired by the brain's neurones which are used to store information through synaptic transmissions. A one-to-one communication between two Neuro accounts is, in fact, called a synaptic transmission. A network of Neuro accounts is called a NeuroNet, in tribute to the neural network of the brain.
+Project Neuro is a web-based application, built on the LAMP stack, that will allow users to use a simple file-sharing tool with the ability to add extensions, modules and skins. 
+
+The name was inspired by the brain's neurones which are used to store information by communicating through synaptic transmissions. A one-to-one communication between two Neuro accounts is, in fact, called a synaptic transmission. A network of Neuro accounts is called a NeuroNet, in tribute to the neural network of the brain.
+
+=====================
+= MISSION STATEMENT =
+=====================
+Project Neuro has one simple mission: Make file sharing easy for all. This tool can be as simple or as multifunctional as the user wants to make it. One can use it to share files with another person, with a group of users, or with an entire NeuroNet. Files can be manipulated through modules and extensions, such as multimedia players, picture browsers or document editors. It will always be free, it will always be open-source, and it will always belong to its community.
