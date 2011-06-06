@@ -41,12 +41,8 @@ if($user_object == null) {
   exit();
 }
 
-// Initialize session data (can store the keys in a central location, Session object?)
-$_SESSION['LoggedIn']         = 1;
-$_SESSION['User']             = array();
-$_SESSION['User']['UserID']   = $user_object->GetUserID();
-$_SESSION['User']['Username'] = $user_object->GetUsername();
-
+// Initialize session data
+Account::InitializeSession($user_object);
 
 // Redirect to the homepage/members page
 Header("Location: /"); 

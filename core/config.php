@@ -2,7 +2,8 @@
 
 // Application-level settings
 define('CONFIG_APPLICATION_NAME', 'Neuro');
-define('CONFIG_HASH_ALGORITHM', 'sha256');
+define('CONFIG_INVITE_CODE',      'cosmos');
+define('CONFIG_HASH_ALGORITHM',   'sha256');
 
 // Source code file structure (we can change this when we fix Nginx defaulting to generic Document Root) ($_SERVER['DOCUMENT_ROOT'])
 if($_SERVER['HTTP_HOST'] == 'www.neuro.mx' || $_SERVER['HTTP_HOST'] == 'neuro.mx')
