@@ -25,14 +25,12 @@ if(!empty($_POST) && isset($_POST['submit'])) {
     $errors[] = $valid_password->two;
 
   // If there were no errors, call the model and ask to create the user
-  $account_created = false;
   if(empty($errors)) {
     $user_created = Account::CreateUser($username, $password);
+
     if($user_created == null) {
       $errors[] = Account::GetErrorMessage();
     } else {
-      $account_created = true;
-
       // Log the user in
       $user_object = Account::Login($username, $password);
 
@@ -43,6 +41,7 @@ if(!empty($_POST) && isset($_POST['submit'])) {
       Header("Location: /");
       exit();
     }
+
   }
 }
 
