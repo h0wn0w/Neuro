@@ -3,8 +3,8 @@
 require_once('core/config.php');
 require_once('core/classes/helper.php');
 require_once('core/classes/account.php');
+require_once('core/classes/user.php');
 
-Account::Login('a', 'b');
 if(!empty($_POST) && isset($_POST['submit'])) {
   $invite_code = $_POST['invite_code'];
   $username    = $_POST['username'];
@@ -26,10 +26,10 @@ if(!empty($_POST) && isset($_POST['submit'])) {
 
   // If there were no errors, call the model and ask to create the user
   if(empty($errors)) {
-    $user_created = Account::CreateUser($username, $password);
+    $user_created = User::Create($username, $password);
 
     if($user_created == null) {
-      $errors[] = Account::GetErrorMessage();
+      $errors[] = User::GetErrorMessage();
     } else {
       // Log the user in
       $user_object = Account::Login($username, $password);

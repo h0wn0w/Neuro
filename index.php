@@ -11,6 +11,9 @@ if(!empty($_SESSION) && isset($_SESSION['LoggedIn'])) {
   print "<br /><br />";
   print "<a href='/logout.php'>Logout?</a><br />";
   print "<br />";
+
+  print "<a href='/upload.php'>Upload</a>";
+  print "<br />";
   print "<h2>Who signed up:</h2>";
   
   $user_list = SuperUser::GetListOfUsers();

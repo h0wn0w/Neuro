@@ -1,4 +1,3 @@
 <?php
 
-echo hash('sha256', 'test') . "\n";
-
+print hash('sha256', 'Test.txt') . "\n\n";

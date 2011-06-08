@@ -1,7 +1,7 @@
 <?php
 
 require_once('core/config.php');
-require_once('core/classes/account.php');
+require_once(CONFIG_NEURO_ROOT_DIRECTORY . '/core/classes/account.php');
 
 if(!empty($_SESSION) && isset($_SESSION['LoggedIn'])) {
   Header("Location: /?already-logged-in"); // temp location

@@ -8,5 +8,21 @@ class Helper {
   static function FilterHTTPParameter($value) {
     return @eregi_replace('[^0-9A-Za-z]', '', $value);
   }
+
+  /*
+   * Returns only digits from a string
+   */
+  static function ExtractDigits($string) {
+    return @eregi_replace('[^0-9]', '', $string);
+  }
+
+  /*
+   * Returns only letters and numbers from a string
+   */
+  static function ExtractAlphanumeric($string) {
+    return @eregi_replace('[^0-9A-Za-z]', '', $string);
+  }
+
+
 }
 

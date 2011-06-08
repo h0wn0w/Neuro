@@ -22,9 +22,9 @@ class Account {
               AND    Password = '{$password_encrypted}' ";
 
     $result = mysql_query($query, $DB);
-
     if(!$result) {
-      self::$error_message = mysql_error();
+      self::$error_message = 'Internal database error 10400.';
+      // We can send the mysql_error() to admin, since its an internal message
       return null;
     }
 
@@ -37,37 +37,6 @@ class Account {
     $user_object = User::Factory($user_data);
 
     return $user_object;
-  }
-
-  static function CreateUser($username, $password) {
-    $DB = Database::GetConnection();
-
-    $username = Database::Escape($username);
-    $password = Database::Escape($password);
-
-    // One-way encode the password before it's saved into the database
-    $password_encrypted = self::EncryptPassword($password);
-
-    $query = "INSERT INTO Users
-              SET Username = '{$username}'
-                , Password = '{$password_encrypted}'";
-    print $query;
-    $result = mysql_query($query, $DB);
-
-    if(!$result) {
-      // Core Inserting Error: Later this can send an admin notification about a DB issue, to notify Neuro devs
-      // Admin message: mysql_error(); 
-      self::$error_message = 'Could not add you to the database. Internal error 10500.';
-      return null;
-    }
-
-    if(mysql_insert_id($DB) == 0) {
-      // Core 'Insert Not Registered' Error: Later this can send an admin notification about a DB issue, to notify Neuro devs
-      self::$error_message = 'Could not add you to the database. Internal error 10501.';
-      return null;
-    }
-
-    return true;
   }
 
   // The user of the Account::Login() method can pass the result object back into
