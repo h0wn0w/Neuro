@@ -6,12 +6,7 @@ define('CONFIG_INVITE_CODE',      'cosmos');
 define('CONFIG_HASH_ALGORITHM',   'sha256');
 
 // Source code file structure (we can change this when we fix Nginx defaulting to generic Document Root) ($_SERVER['DOCUMENT_ROOT'])
-if($_SERVER['HTTP_HOST'] == 'www.neuro.mx' || $_SERVER['HTTP_HOST'] == 'neuro.mx')
-  define('CONFIG_NEURO_ROOT_DIRECTORY', '/www/neuro');
-else if($_SERVER['HTTP_HOST'] == 'yaz.neuro.mx') 
-  define('CONFIG_NEURO_ROOT_DIRECTORY', '/www/yaz/Neuro');
- else if($_SERVER['HTTP_HOST'] == 'fitz.neuro.mx')
-  define('CONFIG_NEURO_ROOT_DIRECTORY', '/www/fitz/Neuro');
+define('CONFIG_NEURO_ROOT_DIRECTORY', $_SERVER['DOCUMENT_ROOT']);
 
 set_include_path(get_include_path() . PATH_SEPARATOR . CONFIG_NEURO_ROOT_DIRECTORY);
 session_save_path('/www/sessions');
