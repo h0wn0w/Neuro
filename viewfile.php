@@ -24,7 +24,7 @@ print "File #" . $file->GetFileID() . "<br />";
 print "Name: " . $file->GetFilename() . "<br />";
 print "Size: " . $file->GetFilesize() . " bytes<br />";
 print "Owner ID: " . $file->GetUserID() . "<br />";
-print "Download: <a href='/getfile.php?id=" . $file->GetFileID() . "&key=" . File::ComputeFilenameHash($file->GetFilename()) . "'>Link</a><br />";
+print "Download: <a href='/download.php?id=" . $file->GetFileID() . "&key=" . File::ComputeFilenameHash($file->GetFilename()) . "'>Link</a><br />";
 print "<br />";
 
 $owner = $file->GetUserObject();

@@ -43,5 +43,4 @@ function readfile_chunked ($filename) {
 Header('Content-Type: application/octet-stream');
 Header('Content-Disposition: attachment;filename="' . $file_object->GetFilename() . '"');
 
-die('x');
 readfile_chunked($file_object->GetPathOnDisk());
