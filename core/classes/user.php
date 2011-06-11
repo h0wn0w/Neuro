@@ -12,13 +12,41 @@ class User {
   // Member variables
   private static $error_message;
 
+  function __construct($user_row) {
+    $this->UserID   = $user_row['UserID'];
+    $this->Username = $user_row['Username'];
+  }
+
+  static function GetErrorMessage() {
+    return self::$error_message;
+  }
+
+  // ********************************************************************************
+  // ** Get properties of this User
+  // ********************************************************************************
+  function GetUserID() {
+    return $this->UserID;
+  }
+
+  function GetUsername() {
+    return $this->Username;
+  }
+
+  // ********************************************************************************
+  // ** Method for creating an instance of the File class
+  // ********************************************************************************
+
   /* 
    * Accepts a row from the Users table and returns back the proper instance
    * of the User class based on permission/access levels
    */
-  static function Factory($user_row) {
+  static function ModelFactory($user_row) {
     return new User($user_row);
   }
+
+  // ********************************************************************************
+  // ** New user validation and inserting
+  // ********************************************************************************
 
   /*
    * This will handle the creation validation of a new User
@@ -66,10 +94,6 @@ class User {
     return true;
   }
 
-  static function GetErrorMessage() {
-    return self::$error_message;
-  }
-
   /*
    * This class contains static members that are used to perform the validation
    * logic.
@@ -98,19 +122,9 @@ class User {
     return new ValuePair(true);
   }
 
-  function __construct($user_row) {
-    $this->UserID   = $user_row['UserID'];
-    $this->Username = $user_row['Username'];
-  }
-
-  function GetUserID() {
-    return $this->UserID;
-  }
-
-  function GetUsername() {
-    return $this->Username;
-  }
-
+  // ********************************************************************************
+  // ** Find Users / User Searches
+  // ********************************************************************************
   static function FindByID($id) {
     $DB = Database::GetConnection();
 
@@ -128,7 +142,7 @@ class User {
     }
 
     $user_data   = mysql_fetch_assoc($result);
-    $user_object = User::Factory($user_data);
+    $user_object = User::ModelFactory($user_data);
 
     return $user_object;
   }

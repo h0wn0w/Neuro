@@ -23,6 +23,17 @@ class Helper {
     return @eregi_replace('[^0-9A-Za-z]', '', $string);
   }
 
+  static function isArrayKeyEmpty(&$array, $key) {
+    if(empty($array))
+      return true;
 
+    if(!array_key_exists($key, $array))
+      return true;
+
+    if(strlen($array[$key]) == 0)
+      return true;
+
+    return false;
+  }
 }
 
