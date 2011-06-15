@@ -41,6 +41,6 @@ function readfile_chunked ($filename) {
 
 // We can eventually change this to use Nginx' Sendfile
 Header('Content-Type: application/octet-stream');
-Header('Content-Disposition: attachment;filename="' . $file_object->GetFilename() . '"');
+Header('Content-Disposition: attachment;filename="' . str_replace('"', '', $file_object->GetFilename()) . '"');
 
 readfile_chunked($file_object->GetPathOnDisk());
